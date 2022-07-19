@@ -7,7 +7,7 @@ ARG LOCALE="en_US.UTF-8"
 
 ENV TZ=${TIMEZONE} \
     DEBIAN_FRONTEND="noninteractive" \
-    PACKAGES="locales libmapnik-dev mapnik-utils python3-mapnik python3-psycopg2 python3-yaml"  \
+    PACKAGES="locales libmapnik-dev mapnik-utils python3-mapnik python3-psycopg2 python3-yaml python3-watchdog"  \
 	LANG=${LOCALE} \
 	CHARSET="UTF-8" \
 	LC_TIME="C.UTF-8"
