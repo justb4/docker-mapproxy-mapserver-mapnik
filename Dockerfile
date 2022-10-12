@@ -32,4 +32,7 @@ RUN \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& echo "For ${TZ} date=`date`" && echo "Locale=`locale`"
 
+# Use a patched mapnik.py, see patches/README.md for reasons.
+COPY patches/mapnik.py /usr/local/lib/python3.7/dist-packages/mapproxy/source/mapnik.py
+
 USER mapproxy

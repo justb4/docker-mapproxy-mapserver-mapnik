@@ -15,6 +15,11 @@ as MapProxy uses.
 
 Convention: `<mapproxy-version>-<mapserver-version>-<mapnik-version>-<buildnr>`, e.g. `justb4/mapproxy-mapserver-mapnik:1.12.0-7.2.2-3.0.22-1`.
 
+# Patches
+
+For optimal performance, patches are applied to `mapnik.py`.
+See [patches/README](https://github.com/justb4/docker-mapproxy-mapserver-mapnik/tree/main/patches/README.md).
+
 # How to setup 
 
 The setup is similar as in the ["justb4" Docker Image for MapProxy README](https://github.com/justb4/docker-mapproxy/blob/master/README.md).
