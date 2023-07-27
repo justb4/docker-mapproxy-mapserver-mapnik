@@ -70,3 +70,9 @@ from watchdog.events import FileSystemEventHandler
 
 
 ```
+
+## Geopackage
+
+Fix the cleanup task by adding missing method `load_tile_metadata` for now. See issue https://github.com/mapproxy/mapproxy/issues/379.
+
+

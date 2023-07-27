@@ -34,5 +34,6 @@ RUN \
 
 # Use a patched mapnik.py, see patches/README.md for reasons.
 COPY patches/mapnik.py /usr/local/lib/python3.7/dist-packages/mapproxy/source/mapnik.py
+COPY patches/geopackage.py /usr/local/lib/python3.7/dist-packages/mapproxy/cache/geopackage.py
 
 USER mapproxy
