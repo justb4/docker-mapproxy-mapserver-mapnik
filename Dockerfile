@@ -1,4 +1,4 @@
-FROM justb4/mapproxy-mapserver:1.13.2-7.2.2-2
+FROM justb4/mapproxy-mapserver:2.0.2-8.0.0-1
 
 LABEL maintainer="Just van den Broecke <justb4@gmail.com>"
 
@@ -14,6 +14,7 @@ ENV TZ=${TIMEZONE} \
     FONT_MUKTA="Mukta.Font.Family" \
     FONT_MUKTA_VERSION="2.538" \
 	LANG=${LOCALE} \
+	PYTHONPATH=/usr/lib/python3/dist-packages \
 	CHARSET="UTF-8" \
 	LC_TIME="C.UTF-8"
 
@@ -23,6 +24,7 @@ USER root
 RUN \
 	apt-get update \
 	&& apt-get --no-install-recommends install -y ${PACKAGES} ${FONT_PACKAGES} ${DEB_BUILD_DEPS}\
+    && ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \
 	&& echo "${LANG} ${CHARSET}" > /etc/locale.gen && locale-gen \
     && curl -L -k -v https://github.com/EkType/Mukta/releases/download/${FONT_MUKTA_VERSION}/${FONT_MUKTA}.${FONT_MUKTA_VERSION}.zip > /${FONT_MUKTA}.${FONT_MUKTA_VERSION}.zip \
     && unzip /${FONT_MUKTA}.${FONT_MUKTA_VERSION}.zip -d ${FONT_TTF_DIR}/  \
@@ -32,8 +34,8 @@ RUN \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& echo "For ${TZ} date=`date`" && echo "Locale=`locale`"
 
-# Use a patched mapnik.py, see patches/README.md for reasons.
-COPY patches/mapnik.py /usr/local/lib/python3.7/dist-packages/mapproxy/source/mapnik.py
-COPY patches/geopackage.py /usr/local/lib/python3.7/dist-packages/mapproxy/cache/geopackage.py
+# Apply patches (for mapnik), fixes not yet in MapProxy version
+COPY patches/ /mapnik-patches
+RUN cd /mapnik-patches && ./apply.sh && cd -
 
 USER mapproxy
