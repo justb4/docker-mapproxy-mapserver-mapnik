@@ -13,7 +13,11 @@ as MapProxy uses.
 
 # Image Tags and Versions
 
-Convention: `<mapproxy-version>-<mapserver-version>-<mapnik-version>-<buildnr>`, e.g. `justb4/mapproxy-mapserver-mapnik:1.12.0-7.2.2-3.0.22-1`.
+Convention: `<mapproxy-version>-<mapserver-version>-<mapnik-version>-<buildnr>`, for example
+
+* `justb4/mapproxy-mapserver-mapnik:1.12.0-7.2.2-3.0.22-1`
+* `justb4/mapproxy-mapserver-mapnik:2.0.2-8.0.0-3.1.0-1` etc
+
 
 # Patches
 

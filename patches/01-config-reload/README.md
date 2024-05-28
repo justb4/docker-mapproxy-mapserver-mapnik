@@ -90,7 +90,8 @@ Once this is available in a version, this patch can be removed.
 # Commands
 
 The version from `master` fetched on May 24, 2024 which is the version in MapProxy 2.0.2.
-Will do this later, too involved now, just copy [mapnik.py](mapnik.py) as here.
+Will do this later, too involved now integrating multiprocessing, optional multithreading and auto-config reload, 
+so just copy [mapnik.py](mapnik.py) as is into Dockerfile MapProxy installation.
 
 So this for later:
 
