@@ -1,4 +1,4 @@
-FROM justb4/mapproxy-mapserver:2.0.2-8.0.0-1
+FROM justb4/mapproxy-mapserver:2.0.2-8.0.0-2
 
 LABEL maintainer="Just van den Broecke <justb4@gmail.com>"
 
@@ -14,7 +14,6 @@ ENV TZ=${TIMEZONE} \
     FONT_MUKTA="Mukta.Font.Family" \
     FONT_MUKTA_VERSION="2.538" \
 	LANG=${LOCALE} \
-	PYTHONPATH=/usr/lib/python3/dist-packages \
 	CHARSET="UTF-8" \
 	LC_TIME="C.UTF-8"
 
