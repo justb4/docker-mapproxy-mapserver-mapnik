@@ -119,7 +119,6 @@ class FileChangeEventHandler(FileSystemEventHandler):
 
 class MapnikSource(MapLayer):
     supports_meta_tiles = True
-
     def __init__(self, mapfile, layers=None, image_opts=None, coverage=None,
                  res_range=None, lock=None, reuse_map_objects=False,
                  scale_factor=None, multithreaded=False):
@@ -294,7 +293,7 @@ class MapnikSource(MapLayer):
             if data:
                 size = len(data)
             log_request('%s:%s:%s:%s' % (mapfile, query.bbox, query.srs.srs_code, query.size),
-                        status='200' if data else '500', size=size, method='API', duration=time.time()-start_time)
+                status='200' if data else '500', size=size, method='API', duration=time.time()-start_time)
 
         return ImageSource(BytesIO(data), size=query.size,
-                           image_opts=ImageOptions(format=query.format))
+            image_opts=ImageOptions(format=query.format))
