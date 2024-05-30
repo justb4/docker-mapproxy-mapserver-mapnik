@@ -63,6 +63,8 @@ class GeopackageCache(TileCacheBase):
         if not getattr(self._db_conn_cache, 'db', None):
             self.ensure_gpkg()
             self._db_conn_cache.db = sqlite3.connect(self.geopackage_file, timeout=self.timeout)
+            self._db_conn_cache.db.execute('PRAGMA synchronous=OFF')
+            self._db_conn_cache.db.execute('PRAGMA journal_mode=MEMORY')
         return self._db_conn_cache.db
 
     def cleanup(self):
